@@ -2,10 +2,9 @@ const {MongoClient, ObjectID} = require('mongodb');
 
 MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
     if (err) {
-        console.log('\nUnable to connect to MongoDB server');
-    } else {
-        console.log('\nConnected to MongoDB server');
+        return console.log('\nUnable to connect to MongoDB server');
     }
+    console.log('\nConnected to MongoDB server');
 
     // db.collection('Todos').find({
     //     _id: new ObjectID('59ac02d152312118ac135bef')
