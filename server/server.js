@@ -33,7 +33,7 @@ app.get('/todo', (req, res) => {
 app.get('/todo/:id', (req, res) => {
     var id = req.params.id;
 
-    if(!ObjectID.isValid(id)) {
+    if (!ObjectID.isValid(id)) {
         return res.status(400).send({error: 'ID not valid'});
     }
 
@@ -42,6 +42,21 @@ app.get('/todo/:id', (req, res) => {
             return res.status(404).send({error: 'Todo not found'})
         }
         res.status(200).send({todo});
+    }).catch((e) => res.status(400).send());
+});
+
+app.delete('/todo/:id', (req, res) => {
+    var id = req.params.id
+
+    if (!ObjectID.isValid(id)) {
+        return res.status(400).send({error: 'ID not valid'});
+    }
+
+    Todo.findByIdAndRemove(id).then((deletedTodo) => {
+        if (!deletedTodo) {
+            return res.status(404).send({error: 'Todo not found'});
+        }
+        res.status(200).send({todoRemoved: deletedTodo});
     }).catch((e) => res.status(400).send());
 });
 
