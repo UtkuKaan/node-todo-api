@@ -13,7 +13,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "mongodb": "^2.2.31",
-    "mongoose": "^4.11.10"
+    "mongoose": "^4.10.8"
   },
   "devDependencies": {
     "expect": "^21.0.0",
