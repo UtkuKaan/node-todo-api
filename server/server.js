@@ -61,10 +61,6 @@ app.delete('/todo/:id', (req, res) => {
     }).catch((e) => res.status(400).send());
 });
 
-app.listen(3000, () => {
-    console.log('Started on port 3000');
-});
-
 app.patch('/todo/:id', (req, res) => {
     var id = req.params.id;
     var body = _.pick(req.body, ['text', 'completed']);
@@ -87,6 +83,10 @@ app.patch('/todo/:id', (req, res) => {
 
         res.status(200).send({todo});
     }).catch((e) => res.status(400).send());
+});
+
+app.listen(3000, () => {
+    console.log('Started on port 3000');
 });
 
 module.exports = {app};
