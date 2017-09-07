@@ -56,7 +56,7 @@ app.delete('/todo/:id', (req, res) => {
         if (!deletedTodo) {
             return res.status(404).send({error: 'Todo not found'});
         }
-        res.status(200).send({todoRemoved: deletedTodo});
+        res.status(200).send({deletedTodo});
     }).catch((e) => res.status(400).send());
 });
 
